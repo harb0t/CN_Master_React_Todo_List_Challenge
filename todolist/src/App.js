@@ -6,6 +6,7 @@ import Form from './components/Form';
 const App = () => {
 
   const [things, setThings] = useState([]);
+
   const [toDoItemInput, setToDoItemInput] = useState('');
 
 
@@ -14,7 +15,6 @@ const App = () => {
       storedThingsToDo.splice(index, 1);
           setThings(storedThingsToDo);
   };
-
 
   const handleSubmit = (e) => {
   e.preventDefault();
@@ -27,16 +27,16 @@ const App = () => {
     <div>
       <h1>To Do List</h1>
         <Form handleSubmit={handleSubmit} toDoItemInput={toDoItemInput} setToDoItemInput={setToDoItemInput}/>
+      {things.map((thing, index) => {
+        return (
+          <ToDo todoitem={ thing.toDoItem } key={ index } handleClick={ () => handleClick(index)}/>
+        );
+      }
+      )}
 
+  </div>
+  );
 
-
-
-    {things.map((thing, index) => {
-return (
-<ToDo todoitem={ thing.toDoItem } key={ index } handleClick={ () => handleClick(index)}/>
-);
-})}
-</div>
-);
 };
+
 export default App

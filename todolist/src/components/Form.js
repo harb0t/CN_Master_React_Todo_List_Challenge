@@ -10,10 +10,10 @@ const Form = ({handleSubmit,toDoItemInput,setToDoItemInput}) => {
                             onChange={(e) => setToDoItemInput(e.target.value)}
                         />
                 </label>
-                <input type="Submit" value='GET THAT DOWN ON THE LIST!'></input>
-                {/* <input type="submit" /> */}
+                <input type="Submit" name='Submit button' value='GET THAT DOWN ON THE LIST!'></input>
             </form>
 
             );
-    };
+};
+
 export default Form;

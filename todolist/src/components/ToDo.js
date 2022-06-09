@@ -1,5 +1,10 @@
 import { useState } from 'react';
+
+// const [toDoEditing, setToDoEditing] = React.useState(null)
+// const [editingText, setEditingText] = React.useState("")
+
 const ToDo = ({ todoitem, handleClick }) => {
+
 const [due, setDue] = useState(false);
     
 return (
@@ -14,9 +19,16 @@ return (
                 </h2>
         )}
 
-            <button onClick={ handleClick}>Nah, forget about</button>
+            <button onClick={ handleClick}>Nah, forget about it</button>
 
             <button onClick={() => setDue(true)}>Boom! Done it!</button>
+            
+            {/* <input type ="text" 
+            onChange={(e) => setEditingText(e.target.value)}
+            value ={editingText} />
+            <input type="checkbox"
+            
+            <button onClick ={() => setToDoEditing(todo.id)}>Edit</button> */}
 
         </div>
 

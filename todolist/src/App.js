@@ -10,11 +10,15 @@ const App = () => {
   const [toDoItemInput, setToDoItemInput] = useState('');
 
 
+
+  
   const handleClick = (index) => {
       let storedThingsToDo = [...things];
       storedThingsToDo.splice(index, 1);
           setThings(storedThingsToDo);
   };
+
+
 
   const handleSubmit = (e) => {
   e.preventDefault();

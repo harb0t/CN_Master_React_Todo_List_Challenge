@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ToDo from './components/ToDo';
+import Form from './components/Form';
 
-function App() {
+const App = () => {
+
+  const [things, setThings] = useState([]);
+  const [toDoItemInput, setToDoItemInput] = useState('');
+
+
+  const handleClick = (index) => {
+      let storedThingsToDo = [...things];
+      storedThingsToDo.splice(index, 1);
+          setThings(storedThingsToDo);
+  };
+
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  setThings([...things,{toDoItem: toDoItemInput,}]);
+  setToDoItemInput('');
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <h1>To Do List</h1>
+        <Form handleSubmit={handleSubmit} toDoItemInput={toDoItemInput} setToDoItemInput={setToDoItemInput}/>
 
-export default App;
+
+
+
+    {things.map((thing, index) => {
+return (
+<ToDo todoitem={ thing.toDoItem } key={ index } handleClick={ () => handleClick(index)}/>
+);
+})}
+</div>
+);
+};
+export default App

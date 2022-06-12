@@ -19,7 +19,7 @@ return (
                 </h2>
         )}
 
-            <button onClick={ handleClick}>Nah, forget about it</button>
+            <button classname="forget" onClick={ handleClick}>Nah, forget about it</button>
 
             <button onClick={() => setDue(true)}>Boom! Done it!</button>
             
